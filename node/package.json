@@ -1,0 +1,23 @@
+{
+  "name": "nginxnode",
+  "version": "1.0.0",
+  "description": "Nesse desafio você colocará em prática o que aprendemos em relação a utilização do nginx como proxy reverso. A idéia principal é que quando um usuário acesse o nginx, o mesmo fará uma chamada em nossa aplicação node.js. Essa aplicação por sua vez adicionará um registro em nosso banco de dados mysql.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabricioalingeri/desafioFullclycleNginxComNodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabricioalingeri/desafioFullclycleNginxComNodejs/issues"
+  },
+  "homepage": "https://github.com/fabricioalingeri/desafioFullclycleNginxComNodejs#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql": "^2.18.1"
+  }
+}

@@ -10,8 +10,6 @@ services:
     command: node index.js
     networks:
       - node-network
-    volumes:
-      - ./node:/usr/src/app
     tty: true
     ports:
       - "3000:3000"
@@ -30,6 +28,7 @@ services:
       - 8080:80
     depends_on: 
       - app
+      - mysql
     entrypoint: dockerize -wait tcp://app:3000 -timeout 20s /docker-entrypoint.sh
     command: ["nginx", "-g", "daemon off;"]
     restart: always
@@ -43,7 +42,7 @@ services:
     restart: always
     tty: true
     volumes:
-      - ./mysql/dbdata:/var/lib/mysql
+      - db_data:/var/lib/mysql
       - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_DATABASE=nodedb
@@ -52,5 +51,8 @@ services:
     networks:
       - node-network
 
+volumes:
+    db_data:
+    
 networks:
   node-network:
